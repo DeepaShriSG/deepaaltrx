@@ -14,7 +14,7 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open https://delightful-moxie-9f46ee.netlify.app/ with your browser to see the result.
 
 <h1>AltDrx Project</h1>
 <hr><p>Front Developer website</p><h2>General Information</h2>
