@@ -1,21 +1,80 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
+body{
+  font-family: "Gotham",sans-serif;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg)  }
+  100% { transform: rotate(360deg) }
+} 
+
+.about-heading{
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+  opacity: 0.1;
+}
+
+
+ .spinImage img{
+  animation: spin 8s linear infinite;
+}
+
+.spinImage {
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  z-index: -1;
+  
+}
+
+.swiper-button-prev, .swiper-button-next{
+  display: none !important;
+}
+
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #ffffff;
   }
 }
 
+.quotationImg{
+  width: 6rem;
+  height: auto;
+}
+
+@media not all and (min-width: 640px) { 
+  .quotationImg{
+    width: 50px;
+    height: auto;
+  }
+ }
+ 
+@media not all and (min-width: 768px) { 
+  
+ }
+@media not all and (min-width: 1024px) {  }
+@media not all and (min-width: 1280px) {  }
+@media not all and (min-width: 1536px) {  }
+
+
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--background);
+  background: var(--foreground);
 }
