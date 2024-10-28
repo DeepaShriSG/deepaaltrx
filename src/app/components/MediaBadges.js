@@ -112,54 +112,58 @@ function MediaBadges({ router }) {
   return (
     <div className="w-homescreen m-5 p-5">
       <div className="flex flex-col md:flex-row justify-center items-center m-3">
-        <h1 className="w-full mediaFont text-fs50 md:text-base lg:text-lg xl:text-xl font-extrabold text-black text-center">Media Badges on Our Shoulder</h1>
+        <h1 className="w-full mediaFont text-xl md:text-base lg:text-lg xl:text-xl font-extrabold text-black text-center">Media Badges on Our Shoulder</h1>
         <Link href={"/media" || "/"} className="uppercase underline text-end font-extrabold text-orange text-sm whitespace-nowrap cursor-pointer">
           View all
         </Link>
       </div>
       <div>
-        <section className="relative container mx-auto my-5 p-3">
-          <Swiper
-            spaceBetween={20}
-            slidesPerView={4}
-            breakpoints={{
-              640: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 4 },
-            }}
-            autoplay={{
-              delay: 5500,
-              disableOnInteraction: true,
-            }}
-            navigation={true}
-            modules={[Autoplay, Navigation]}
-            className="mySwiper">
-            {carouselData.map((item) => {
-              return (
-                <>
-                  <SwiperSlide>
-                  <section key={item.id} className="border border-black rounded-lg bg-orange">
-                <div className="rounded-lg bg-white">
-                  <Image alt="" src={item.imgurl} width={1920} height={1080} className="h-52 object-scale-down rounded-t-lg" style={{ borderRadius: "1rem" }} />
+      <section className="container mx-auto">
+        <Swiper
+          spaceBetween={20}
+          slidesPerView={1}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 4 },
+          }}
+          autoplay={{
+            delay: 5500,
+            disableOnInteraction: true,
+          }}
+          navigation={true}
+          modules={[Autoplay, Navigation]}
+          className="mySwiper"
+        >
+          {carouselData.map((item) => (
+            <SwiperSlide key={item.id}>
+              <section className="border border-black rounded-lg bg-orange flex flex-col">
+                <div className="bg-white rounded-t-lg overflow-hidden">
+                  <Image
+                    alt=""
+                    src={item.imgurl}
+                    width={1920}
+                    height={1080}
+                    className="h-52 object-cover w-full"
+                  />
                 </div>
-                <div className="rounded-b-lg text-white px-4 lg:px-4 xl:px-6 py-3 h-36 flex flex-col justify-between">
-                  <div>
-                    <p className="font-light text-sm">{item.date}</p>
-                    <h6 className="text-base">{item.description}</h6>
-                  </div>
-                  <p className="font-light text-fs12">
-                    <a target="_blank" rel="noopener noreferrer" href={item.link}>
-                      <span className="mr-1 underline">READ MORE</span>&gt;
-                    </a>
-                  </p>
+                <div className="px-4 py-3 text-white h-44 flex flex-col justify-between">
+                  <p className="text-sm font-light">{item.date}</p>
+                  <h6 className="text-base font-medium">{item.description}</h6>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={item.link}
+                    className="text-xs font-light underline mt-2"
+                  >
+                    READ MORE &gt;
+                  </a>
                 </div>
               </section>
-                  </SwiperSlide>
-                </>
-              );
-            })}
-          </Swiper>
-        </section>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </section>
       </div>
     </div>
   );
